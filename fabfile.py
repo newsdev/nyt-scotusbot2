@@ -62,3 +62,10 @@ def setup():
 def deploy():
     pull()
     pip_install()
+
+@api.task
+def runbot():
+    api.run('workon nyt-scotusbot2 && cd /home/ubuntu/nyt-scotusbot2 && ./bot.sh')
+
+def killbot():
+    api.sudo('killall scotusbot2')

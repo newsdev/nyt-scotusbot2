@@ -7,7 +7,7 @@ if [[ ! -z $1 ]] ; then
 fi
 
 if [[ -z $SCOTUSBOT_TIMEOUT ]] ; then
-    SCOTUSBOT_TIMEOUT=15
+    SCOTUSBOT_TIMEOUT=60
 fi
 
 function pre {

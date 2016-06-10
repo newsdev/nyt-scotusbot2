@@ -6,7 +6,7 @@ from sets import Set
 from csvkit.py2 import CSVKitDictReader, CSVKitDictWriter
 
 
-WEBHOOK_URL = os.environ.get('WEBHOOK_URL', None)
+WEBHOOK_URL = os.environ.get('SCOTUSBOT2_WEBHOOK_URL', None)
 
 IMPORTANT = []
 with open('important.txt', 'r') as readfile:
