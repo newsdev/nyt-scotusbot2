@@ -2,13 +2,8 @@
 
 . /etc/environment
 
-if [[ ! -z $1 ]] ; then 
-    TERM=$1 
-fi
-
-if [[ -z $SCOTUSBOT_TIMEOUT ]] ; then
-    SCOTUSBOT_TIMEOUT=60
-fi
+TERM=2015
+SCOTUSBOT_TIMEOUT=60
 
 function pre {
     rm -rf new.csv
@@ -28,10 +23,6 @@ function post {
 }
 
 for (( i=1; i<100000; i+=1 )); do
-
-    if [ -f /tmp/scotusbot_timeout.sh ]; then
-        . /tmp/scotusbot_timeout.sh
-    fi
 
     pre
     get_new_opinions
