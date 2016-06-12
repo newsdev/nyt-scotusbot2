@@ -38,4 +38,6 @@ for (( i=1; i<100000; i+=1 )); do
     run_bot
     post
 
+    sleep $ELEX_LOADER_TIMEOUT
+
 done
