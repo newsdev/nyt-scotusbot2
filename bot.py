@@ -7,6 +7,7 @@ from csvkit.py2 import CSVKitDictReader, CSVKitDictWriter
 
 
 WEBHOOK_URL = os.environ.get('SCOTUSBOT2_WEBHOOK_URL', None)
+QUIET = os.environ.get('SCOTUSBOT2_QUIET', False)
 
 IMPORTANT = []
 with open('important.txt', 'r') as readfile:
@@ -42,4 +43,6 @@ if len(new_cases) > len(old_cases):
                     message += "%(docket)s: *%(casename)s*\nPer curiam: <%(opinion_pdf_url)s>\n" % co
                 else:
                     message += "%(docket)s: *%(casename)s*\n%(majopinionwriter_name)s: <%(opinion_pdf_url)s>\n" % co
-                send_message(message)
+                if not QUIET:
+                    print "%(docket)s\t%(casename)s\t%(opinion_pdf_url)s" % co
+                    send_message(message)
